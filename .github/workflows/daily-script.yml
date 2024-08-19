@@ -2,7 +2,7 @@ name: Run Script Daily
 
 on:
   schedule:
-    - cron: '*/5 * * * *' # Exécute tous les jours à minuit UTC
+    - cron: '*/1 * * * *' # Exécute toutes les 5 minutes
 
 jobs:
   run-script:
