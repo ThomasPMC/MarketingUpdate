@@ -1,26 +1,25 @@
-name: Run Script Daily
+name: Run Python Script Every Minute
 
 on:
   schedule:
-    - cron: '*/1 * * * *' # Exécute toutes les 5 minutes
+    - cron: '* * * * *'  # Exécute toutes les minutes
 
 jobs:
   run-script:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.x'
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'  # Spécifiez la version Python requise
 
-    - name: Install dependencies
-      run: |
-        pip install -r requirements.txt
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
 
-    - name: Run script
-      run: |
-        Marketing_Status.py
+      - name: Run script
+        run: |
+          python Marketing_Status.py
